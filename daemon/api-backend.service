@@ -1,0 +1,14 @@
+[Unit]
+Description=MDS backend service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+User=allen
+Group=allen
+WorkingDirectory=/home/allen/http_event_prometheus_exporter/
+ExecStart=uwsgi /home/allen/http_event_prometheus_exporter/uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target

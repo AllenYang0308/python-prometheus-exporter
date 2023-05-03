@@ -1,0 +1,15 @@
+[Unit]
+Description=MDS backend service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+User=allen
+Group=allen
+WorkingDirectory=/home/allen/http_event_prometheus_exporter/
+Environment=base=/home/allen/http_event_prometheus_exporter
+ExecStart=/usr/bin/python3 /home/allen/http_event_prometheus_exporter/exporter.py
+
+[Install]
+WantedBy=multi-user.target
