@@ -7,3 +7,4 @@ prometheus-api-client==0.5.1
 pandas==1.4.3
 rq==1.11.0
 pipe==2.0
+prometheus-client==0.15.0
