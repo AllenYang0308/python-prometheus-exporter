@@ -3,24 +3,19 @@ from models.base.models import Model
 from models.base.fields import Field
 
 
+class ServiceStatusModel(Model):
+    gauge = Field("gauge", callback_func=lambda x: float(x))
+
+
 class Demo(Model):
     name = Field("name", callback_func=lambda x: str(x))
     model = Field("model", callback_func=lambda x: str(x))
 
 
-class Test(Model):
-    model = Field("model", callback_func=lambda x: str(x))
-
-
-class DemoGauge(Model):
-    gauge = Field("gauge", callback_func=lambda x: float(x))
-
-
 # -------------------- Metric Model --------------------
 class MetricDataModel(object):
     Demo = Demo
-    DemoGauge = DemoGauge
-    Test = Test
+    ServiceStatusModel = ServiceStatusModel
 
 
 class Metrics(object):
@@ -29,13 +24,8 @@ class Metrics(object):
         "demo",
         ["id"]
     )
-    demo_gauge = Gauge(
-        "demo_gauge",
+    service_status_gauge = Gauge(
+        "service_status_gauge",
         "demo",
-        ['id', 'name', 'model']
-    )
-    test = Info(
-        "test",
-        "test",
-        ["id"]
+        ["target_name", "target_url", "status"]
     )

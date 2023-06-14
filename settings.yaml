@@ -1,18 +1,13 @@
 name: "backend_exporter"
 version: "1.0.1"
 settings:
-  - name: "demo"
-    model: "demo"
-    interval: 1
-    formatter: "Demo"
-    metric: "Info"
-  - name: "demo_gauge"
-    model: "demo_gauge"
-    interval: 1
-    formatter: "DemoGauge"
+  # - name: "demo"
+  #   model: "demo"
+  #   interval: 1
+  #   formatter: "Demo"
+  #   metric: "Info"
+  - name: "service_status_gauge"
+    model: "async_service"
+    interval: 90
+    formatter: "ServiceStatusModel"
     metric: "Gauge"
-  - name: "test"
-    model: "test"
-    interval: 1
-    formatter: "Test"
-    metric: "Info"

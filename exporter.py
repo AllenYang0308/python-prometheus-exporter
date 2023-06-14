@@ -20,6 +20,7 @@ class PeriodicWorkerParam(Model):
 
 if __name__ == '__main__':
     load_dotenv()
+    yaml.warnings({'YAMLLoadWarning': False})
     with open("settings.yaml") as f:
         config = yaml.load(f.read())
 
